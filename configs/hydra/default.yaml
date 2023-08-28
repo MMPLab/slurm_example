@@ -1,0 +1,7 @@
+# @package _group_
+#
+run:
+  dir: ${output}/${exp_name}/outputs/
+sweep:
+  dir: ${output}/${exp_name}/outputs/
+  subdir: ID${hydra.job.id} 

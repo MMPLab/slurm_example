@@ -1,0 +1,20 @@
+workers: 64
+
+world_size: 1
+rank: 0
+dist_url: tcp://localhost:10001
+dist_backend: nccl
+port: 10001
+node: localhost
+
+
+distributed: True
+gpu:
+ngpu: 8
+mem_gb: 128
+
+slurm: True
+slurm_partition: abhinav,all
+slurm_timeout: 360
+nodelist: ""
+exclude: ""

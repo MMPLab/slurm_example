@@ -1,0 +1,16 @@
+# Logging frequency
+print_freq: 100
+save_freq: 25
+eval_freq: 10
+
+# Paths
+ckpt_dir: ${output}/${exp_name}/checkpoints/
+submitit_dir: ${output}/${exp_name}/logs/
+
+# Logging
+use_wandb: False
+wandb_dir: ${output}/${exp_name}/wandb/
+wandb_user: pmorgado
+wandb_project: moco
+num_save_crops: 5
+
