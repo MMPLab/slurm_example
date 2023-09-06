@@ -16,7 +16,7 @@ pip install tensorboard
 Model is saved under `${output}/${exp_name}/checkpoints`.
 Logs are saved under `${output}/${exp_name}/logs`.
 ```bash
-PYTHONPATH=. python main_slurm.py \
+PYTHONPATH=. python launcher.py \
   output=/grogu/user/pmorgado/workspace/slurm_example/checkpoints \
   exp_name=r18pt_cifar10_bs\${batch_size}_lr\${lr} \
   arch=resnet18 pretrained=true \
@@ -26,7 +26,7 @@ PYTHONPATH=. python main_slurm.py \
 
 ### Hyper-parameter search (on batch_size in this case):
 ```bash
-PYTHONPATH=. python main_slurm.py \
+PYTHONPATH=. python launcher.py \
   output=/grogu/user/pmorgado/workspace/slurm_example/checkpoints \
   exp_name=r18pt_cifar10_bs\${batch_size}_lr\${lr} \
   arch=resnet18 pretrained=true \
@@ -37,7 +37,7 @@ PYTHONPATH=. python main_slurm.py \
 ### Test:
 Loads `${output}/${exp_name}/checkpoints/checkpoint_latest.pth` and evaluates it.
 ```bash
-PYTHONPATH=. python main_slurm.py \
+PYTHONPATH=. python launcher.py \
   output=/grogu/user/pmorgado/workspace/slurm_example/checkpoints \
   exp_name=r18pt_cifar10_bs\${batch_size}_lr\${lr} \
   arch=resnet18 batch_size=256 evaluate=True \
@@ -52,7 +52,7 @@ srun -N 1 -t 6:00:00 -G 4 --cpus-per-task=10 --mem=128000  --partition=abhinav,a
 
 Then, run the job with `slurm=False`:
 ```bash
-PYTHONPATH=. python main_slurm.py \
+PYTHONPATH=. python launcher.py \
   output=/grogu/user/pmorgado/workspace/slurm_example/checkpoints \
   exp_name=r18pt_cifar10_bs\${batch_size}_lr\${lr} \
   arch=resnet18 pretrained=true \
